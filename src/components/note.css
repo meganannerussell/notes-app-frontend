@@ -1,0 +1,31 @@
+.note {
+  width: 300px;
+  padding-top: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  box-shadow: 3px 3px 20px rgba(70, 101, 160, 0.164);
+  border-radius: 15px;
+  /* margin: auto; */
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* position: relative; */
+}
+
+.my-custom-class {
+  color: red;
+  text-align: center;
+}
+
+.editbtn{
+  /* background-color: white; */
+  border-style: none;
+  padding: none;
+  background-color: #f0f8ff00;
+}
+
+.editbtn:focus {
+  outline: none;
+}
