@@ -18,7 +18,7 @@ export const Note = ({ note, handleDelete, handleEdit }) => {
   };
 
   return (
-    <div style={{backgroundColor:color}} className="note">
+    <div style={{backgroundColor:color, zIndex:-100}} className="note">
       <h2>{title}</h2>
       <div style={{paddingBottom:20}}>{description}</div>
       <div style={{ textAlign: "end" }}>

@@ -21,7 +21,7 @@ export const Form = ({
   // const [descriptionInput, setDescriptionInput] = useState(description);
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit} style={{zIndex:200}}>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <input
           style={{
@@ -44,7 +44,7 @@ export const Form = ({
       </div>
       <div>
         <button
-        style={{backgroundColor: color}}
+          style={{ backgroundColor: color }}
           className="colorBtn"
           type="button"
           onClick={() => setShowColorPicker(!showColorPicker)}
@@ -55,17 +55,19 @@ export const Form = ({
             alt="picker"
             src={colorpicker}
           />
-          {/* {showColorPicker ? "close" : "pick"} */}
+          {showColorPicker ? "close" : "pick"}
         </button>
         {showColorPicker && (
-          <GithubPicker
-            className="colorPicker"
-            onChange={(selectedColor) => handleColor(selectedColor.hex)}
-            // onChange={updatedColor => handleColor(updatedColor.hex)}
-            // onChange={(color) => console.log(color)}
-            color={color}
-            // onChange={(updatedColor) => setColor(updatedColor.hex)}
-          />
+          <div style={{ zIndex: 200 }}>
+            <GithubPicker
+              className="colorPicker"
+              onChange={(selectedColor) => handleColor(selectedColor.hex)}
+              // onChange={updatedColor => handleColor(updatedColor.hex)}
+              // onChange={(color) => console.log(color)}
+              color={color}
+              // onChange={(updatedColor) => setColor(updatedColor.hex)}
+            />
+          </div>
         )}
         {/* <h2>you picked{color}</h2> */}
         {/* {console.log("hello this is", color)} */}

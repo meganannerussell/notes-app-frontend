@@ -82,7 +82,7 @@ function App() {
   const handleDelete = (id) => {
     console.log("note deleted", id);
     try {
-      const response = axios.delete(`http://localhost:5000/notes/${id}`);
+      axios.delete(`http://localhost:5000/notes/${id}`);
       const tempNotes = notes.filter((item) => item.id !== id);
       setNotes(tempNotes);
     } catch (err) {
@@ -91,6 +91,7 @@ function App() {
   };
 
   const handleEdit = (id) => {
+    console.log("DDDD")
     setEditing(true);
     setNoteId(id);
     console.log("editing note", id);
