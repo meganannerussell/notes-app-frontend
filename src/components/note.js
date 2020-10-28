@@ -1,5 +1,5 @@
 import React from "react";
-import "./note.css";
+import "./note.scss";
 
 import "semantic-ui-css/semantic.min.css";
 import { Icon } from "semantic-ui-react";

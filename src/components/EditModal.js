@@ -3,10 +3,22 @@ import "semantic-ui-css/semantic.min.css";
 import { Modal } from "semantic-ui-react";
 import "./editModal.css";
 import tick from "../assets/tick.svg";
+import { GithubPicker } from "react-color";
+import colorpicker from "../assets/colorpicker.svg";
 
-export const EditModal = ({ updateNote, note, onClose }) => {
+export const EditModal = ({
+  updateNote,
+  note,
+  onClose,
+  // setShowColorPicker,
+  // showColorPicker,
+  // handleColor,
+  // color,
+}) => {
   const [newTitle, setTitle] = useState(note.title);
+  const [newColor, setNewColor]=useState(note.color)
   const [newDescription, setDescription] = useState(note.description);
+  const [showNewColorPicker, setNewShowColorPicker] = useState(false);
 
   return (
     <Modal
@@ -19,7 +31,7 @@ export const EditModal = ({ updateNote, note, onClose }) => {
     >
       <Modal.Content style={{ height: "100%" }}>
         <form
-          onSubmit={() => updateNote({ newTitle, newDescription })}
+          onSubmit={() => updateNote({ newTitle, newDescription, newColor })}
           className="editForm"
         >
           <div
@@ -44,18 +56,48 @@ export const EditModal = ({ updateNote, note, onClose }) => {
             />
           </div>
           <div>
-            <button
-              className="editBtn"
-              onClick={{ updateNote }}
-              primary
-              content="Done"
-            >
-              <img
-                style={{ padding: 5, paddingLeft: 1, paddingBottom: 8 }}
-                alt="tick"
-                src={tick}
-              />
-            </button>
+            <div>
+              <button
+                style={{ backgroundColor: newColor }}
+                className="colorBtn"
+                type="button"
+                onClick={() => setNewShowColorPicker(!showNewColorPicker)}
+              >
+                <img
+                  style={{
+                    padding: 5,
+                    paddingLeft: 1,
+                    paddingBottom: 8,
+                    width: 25,
+                  }}
+                  alt="picker"
+                  src={colorpicker}
+                />
+                {showNewColorPicker ? "close" : "pick"}
+              </button>
+              {showNewColorPicker && (
+                <div style={{ zIndex: 200 }}>
+                  <GithubPicker
+                    className="colorPicker"
+                    onChange={(selectedColor) => setNewColor(selectedColor.hex)}
+                    color={newColor}
+                  />
+                </div>
+              )}
+
+              <button
+                className="editBtn"
+                onClick={{ updateNote }}
+                primary
+                content="Done"
+              >
+                <img
+                  style={{ padding: 5, paddingLeft: 1, paddingBottom: 8 }}
+                  alt="tick"
+                  src={tick}
+                />
+              </button>
+            </div>
           </div>
         </form>
       </Modal.Content>

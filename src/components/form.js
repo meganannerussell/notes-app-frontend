@@ -49,7 +49,6 @@ export const Form = ({
           type="button"
           onClick={() => setShowColorPicker(!showColorPicker)}
         >
-          {" "}
           <img
             style={{ padding: 5, paddingLeft: 1, paddingBottom: 8, width: 25 }}
             alt="picker"

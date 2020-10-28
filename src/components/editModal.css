@@ -13,6 +13,26 @@
   text-align: center;
 }
 
+.colorBtn {
+  position: absolute;
+  right: 3.9rem;
+  bottom: -1.1rem;
+  box-shadow: 3px 3px 20px rgba(70, 101, 160, 0.164);
+  background-color: #f86f68;
+  border-style: none;
+  color: white;
+  font-size: 10px;
+  height: 35px;
+  width: 35px;
+  border-radius: 20px;
+  padding-top: 1px;
+}
+
+.colorBtn:focus {
+  outline: none;
+}
+
+
 .editBtn {
   position: absolute;
   /* right: -0.3rem;
@@ -29,6 +49,6 @@
   bottom: -2.9rem;
 }
 
-.btn:focus {
+.editBtn:focus {
   outline: none;
 }
