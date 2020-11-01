@@ -16,7 +16,7 @@ export const EditModal = ({
   // color,
 }) => {
   const [newTitle, setTitle] = useState(note.title);
-  const [newColor, setNewColor]=useState(note.color)
+  const [newColor, setNewColor] = useState(note.color);
   const [newDescription, setDescription] = useState(note.description);
   const [showNewColorPicker, setNewShowColorPicker] = useState(false);
 
@@ -31,7 +31,10 @@ export const EditModal = ({
     >
       <Modal.Content style={{ height: "100%" }}>
         <form
-          onSubmit={() => updateNote({ newTitle, newDescription, newColor })}
+          onSubmit={(e) => {
+            e.preventDefault();
+            updateNote({ newTitle, newDescription, newColor });
+          }}
           className="editForm"
         >
           <div

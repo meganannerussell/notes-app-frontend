@@ -26,8 +26,8 @@ function App() {
     setNotes(fetchedNotes);
   };
 
-  useEffect( () => {
-     fetchNotes();
+  useEffect(() => {
+    fetchNotes();
   }, []);
 
   const handleColor = (selectedColor) => {
@@ -57,7 +57,7 @@ function App() {
           description,
           color,
         });
-        const note =  await response.data;
+        const note = await response.data;
         fetchNotes();
         clearFields();
         console.log(notes);
@@ -91,7 +91,7 @@ function App() {
   };
 
   const handleEdit = (id) => {
-    console.log("DDDD")
+    console.log("DDDD");
     setEditing(true);
     setNoteId(id);
     console.log("editing note", id);
@@ -99,20 +99,22 @@ function App() {
 
   const updateNote = async ({ newTitle, newDescription, newColor }) => {
     const response = await axios.put(`http://localhost:5000/notes/${noteId}`, {
-      newTitle, newDescription, newColor
-    })
-    // const updatedNote = response.data
-    // fetchNotes();
-    // setNotes([...notes, updatedNote])
-    // setNotes(
-      notes.map((note) =>
-        note.id === noteId
-          ? { ...note, title: newTitle, description: newDescription, color: newColor }
-          : note
-    );
-    console.log(response.data)
-  
+      newTitle,
+      newDescription,
+      newColor,
+    });
 
+    const updatedNotes = notes.map((note) =>
+      note.id === noteId
+        ? {
+            ...note,
+            title: newTitle,
+            description: newDescription,
+            color: newColor,
+          }
+        : note
+    );
+    setNotes(updatedNotes);
 
     // setNotes({...note,title: newTitle, description: newDescription, color: newColor })
     // console.log("note was updated");
