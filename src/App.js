@@ -11,7 +11,7 @@ import { getNotes } from "./actions";
 // import { v4 as uuidv4 } from "uuid";
 const env = runtimeEnv();
 
-const apiBaseUrl = env.REACT_APP_API_URL || "http://localhost:5000";
+export const apiBaseUrl = env.REACT_APP_API_URL || "http://localhost:5000";
 
 function App() {
   const [noteId, setNoteId] = useState();
