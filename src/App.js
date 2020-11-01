@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
+import runtimeEnv from "@mars/heroku-js-runtime-env";
+const env = runtimeEnv();
 
 import { Form } from "./components/form";
 import { List } from "./components/list";
@@ -10,7 +12,7 @@ import { getNotes } from "./actions";
 
 // import { v4 as uuidv4 } from "uuid";
 
-const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const apiBaseUrl = env.REACT_APP_API_URL || "http://localhost:5000";
 
 function App() {
   const [noteId, setNoteId] = useState();
