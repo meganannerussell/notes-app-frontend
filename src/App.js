@@ -10,6 +10,8 @@ import { getNotes } from "./actions";
 
 // import { v4 as uuidv4 } from "uuid";
 
+const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 function App() {
   const [noteId, setNoteId] = useState();
   const [title, setTitle] = useState("");
@@ -52,7 +54,7 @@ function App() {
       // setNotes([...notes, { title, description, color, id: uuidv4() }]);
 
       try {
-        const response = await axios.post("http://localhost:5000/notes", {
+        const response = await axios.post(`${apiBaseUrl}/notes`, {
           title,
           description,
           color,
@@ -82,7 +84,7 @@ function App() {
   const handleDelete = (id) => {
     console.log("note deleted", id);
     try {
-      axios.delete(`http://localhost:5000/notes/${id}`);
+      axios.delete(`${apiBaseUrl}/notes/${id}`);
       const tempNotes = notes.filter((item) => item.id !== id);
       setNotes(tempNotes);
     } catch (err) {
@@ -98,7 +100,7 @@ function App() {
   };
 
   const updateNote = async ({ newTitle, newDescription, newColor }) => {
-    const response = await axios.put(`http://localhost:5000/notes/${noteId}`, {
+    const response = await axios.put(`${apiBaseUrl}/notes/${noteId}`, {
       newTitle,
       newDescription,
       newColor,
