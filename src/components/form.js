@@ -54,22 +54,17 @@ export const Form = ({
             alt="picker"
             src={colorpicker}
           />
-          {showColorPicker ? "close" : "pick"}
+          {/* {showColorPicker ? "close" : "pick"} */}
         </button>
         {showColorPicker && (
           <div style={{ zIndex: 200 }}>
             <GithubPicker
               className="colorPicker"
               onChange={(selectedColor) => handleColor(selectedColor.hex)}
-              // onChange={updatedColor => handleColor(updatedColor.hex)}
-              // onChange={(color) => console.log(color)}
               color={color}
-              // onChange={(updatedColor) => setColor(updatedColor.hex)}
             />
           </div>
         )}
-        {/* <h2>you picked{color}</h2> */}
-        {/* {console.log("hello this is", color)} */}
 
         <button type="submit" className="btn">
           +

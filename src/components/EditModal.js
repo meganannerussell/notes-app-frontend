@@ -6,15 +6,7 @@ import tick from "../assets/tick.svg";
 import { GithubPicker } from "react-color";
 import colorpicker from "../assets/colorpicker.svg";
 
-export const EditModal = ({
-  updateNote,
-  note,
-  onClose,
-  // setShowColorPicker,
-  // showColorPicker,
-  // handleColor,
-  // color,
-}) => {
+export const EditModal = ({ updateNote, note, onClose }) => {
   const [newTitle, setTitle] = useState(note.title);
   const [newColor, setNewColor] = useState(note.color);
   const [newDescription, setDescription] = useState(note.description);
@@ -61,8 +53,12 @@ export const EditModal = ({
           <div>
             <div>
               <button
-                style={{ backgroundColor: newColor }}
-                className="colorBtn"
+                style={{
+                  backgroundColor: newColor,
+                  // right: "2.2rem",
+                  // bottom: "-3rem",
+                }}
+                className="colorBtnModal"
                 type="button"
                 onClick={() => setNewShowColorPicker(!showNewColorPicker)}
               >
@@ -107,27 +103,3 @@ export const EditModal = ({
     </Modal>
   );
 };
-
-// {/* <Form
-// style={{ boxShadow: "none" }}
-// onSubmit={() => updateNote({ newTitle, newDescription })}
-// >
-// <Form.Field>
-//   {/* <h3>Title</h3> */}
-//   <input
-//     value={newTitle}
-//     onChange={(e) => setTitle(e.target.value)}
-//     placeholder="Title"
-//   />
-// </Form.Field>
-// <Form.Field>
-//   {/* <h3>Description</h3> */}
-//   <textarea
-//     style={{ height: 100 }}
-//     value={newDescription}
-//     onChange={(e) => setDescription(e.target.value)}
-//     placeholder="Description"
-//   />
-// </Form.Field>
-// <Button onClick={{ updateNote }} primary content="Done" />
-// </Form> */}

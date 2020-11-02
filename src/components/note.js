@@ -23,12 +23,14 @@ export const Note = ({ note, handleDelete, handleEdit }) => {
       <div style={{paddingBottom:20}}>{description}</div>
       <div style={{ textAlign: "end" }}>
         <button
+          style={{opacity:'100%'}}
           onClick={editNote}
           className="editbtn"
         >
           <Icon link name="pencil" />
         </button>
         <button 
+        style={{opacity:'100%'}}
         onClick={deleteNote} 
         className="editbtn">
           <Icon link name="close" />

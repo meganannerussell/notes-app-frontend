@@ -22,7 +22,7 @@ function App() {
   const [editing, setEditing] = useState(false);
 
   const [showColorPicker, setShowColorPicker] = useState(false);
-  const [color, setColor] = useState("#fff");
+  const [color, setColor] = useState("#eb9694");
 
   const fetchNotes = async () => {
     const fetchedNotes = await getNotes();
