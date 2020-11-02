@@ -72,7 +72,6 @@ export const EditModal = ({ updateNote, note, onClose }) => {
                   alt="picker"
                   src={colorpicker}
                 />
-                {showNewColorPicker ? "close" : "pick"}
               </button>
               {showNewColorPicker && (
                 <div style={{ zIndex: 200 }}>
