@@ -4,11 +4,10 @@ import axios from "axios";
 import runtimeEnv from "@mars/heroku-js-runtime-env";
 import { Form } from "./components/form";
 import { List } from "./components/list";
-// import { Note } from "./components/note";
 import { EditModal } from "./components/EditModal";
 import { getNotes } from "./actions";
 
-// import { v4 as uuidv4 } from "uuid";
+
 const env = runtimeEnv();
 
 export const apiBaseUrl = env.REACT_APP_API_URL || "http://localhost:5000";
