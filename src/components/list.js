@@ -9,49 +9,51 @@ import "./list.css";
 
 export const List = ({ notes, handleDelete, handleEdit }) => {
   return (
-    // <Grid
-    //   columns={3}
-    //   style={{
-    //     display: "grid",
-    //     // gridTemplateColumns: '1fr',
-    //     maxWidth: "70vw",
-    //     margin: "auto",
-    //     padding: "1rem",
-    //     zIndex: -100,
-    //   }}
-    // >
-    //   <XMasonry>
-    //     {notes.length
-    //       ? notes.map((note) => (
-    //           <XBlock key={note.id}>
-    //             <Note
-    //               note={note}
-    //               handleDelete={handleDelete}
-    //               handleEdit={handleEdit}
-    //             />
-    //           </XBlock>
-    //         ))
-    //       : null}
-    //   </XMasonry>
-    // </Grid>
+    <Grid
+      columns={3}
+      style={{
+        display: "grid",
+        // gridTemplateColumns: '1fr',
+        maxWidth: "70vw",
+        margin: "auto",
+        padding: "1rem",
+        zIndex: -100,
+      }}
+    >
+      <XMasonry>
+        {notes.length
+          ? notes.map((note) => (
+              <XBlock key={note.id}>
+                <div style={{padding:40}}v>
+                  <Note
+                    note={note}
+                    handleDelete={handleDelete}
+                    handleEdit={handleEdit}
+                  />
+                </div>
+              </XBlock>
+            ))
+          : null}
+      </XMasonry>
+    </Grid>
 
-    <div>
-      {chunk(notes, 3).map((chunks) => (
-        <XMasonry style={{ margin: 50 }}>
-          {chunks.map((note) => (
-            <XBlock style={{ margin: 30 }} key={note.id}>
-              <Note
-                key={note.id}
-                note={note}
-                handleEdit={handleEdit}
-                handleDelete={handleDelete}
-                value
-              />
-            </XBlock>
-          ))}
-        </XMasonry>
-      ))}
-    </div>
+    // <div>
+    //   {chunk(notes, 3).map((chunks) => (
+    //     <XMasonry style={{ margin: 50 }}>
+    //       {chunks.map((note) => (
+    //         <XBlock style={{ margin: 30 }} key={note.id}>
+    //           <Note
+    //             key={note.id}
+    //             note={note}
+    //             handleEdit={handleEdit}
+    //             handleDelete={handleDelete}
+    //             value
+    //           />
+    //         </XBlock>
+    //       ))}
+    //     </XMasonry>
+    //   ))}
+    // </div>
 
     // <div>
     //   {notes.map((note) => {
